@@ -7,7 +7,7 @@
     "whatsapp",
     "automation"
   ],
-  "homepage": "https://github.com/WhiskeySockets/Baileys/",
+  "homepage": "https://github.com/KonaimaV2/baileys#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KonaimaV2/baileys.git"
@@ -123,5 +123,8 @@
   "packageManager": "yarn@4.9.2",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/KonaimaV2/baileys/issues"
   }
 }
