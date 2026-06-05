@@ -66,6 +66,11 @@ Current maintained release: **1.0.5**
 - Repository: https://github.com/KonaimaV2/baileys
 - Issues: https://github.com/KonaimaV2/baileys/issues
 
+## Contributors
+
+- Arraffi / KonaimaV2 — maintainer
+- Reiko (OpenClaw assistant) — compatibility auditing, maintenance notes, and release preparation support
+
 ---
 
 ## Upstream Baileys README
