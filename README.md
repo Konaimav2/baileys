@@ -1,29 +1,70 @@
 # @konaa/baileys
 
-Konaima custom Baileys package based on `@whiskeysockets/baileys@7.0.0-rc13`.
+Maintained Baileys RC build for MikirBot and Kiu-style WhatsApp bot projects.
 
-## Konaima custom additions
+`@konaa/baileys` keeps the current upstream Baileys RC internals while adding a small compatibility layer for older Kiu/@z4phdev-style bots. The goal is to let existing plugins continue working without replacing newer Baileys features such as modern LID/PN, newsletter, community, and MEX handling.
 
-This package keeps the upstream Baileys RC behavior and adds compatibility helpers for MikirBot-style projects.
+## Install
 
-Added compatibility:
-
-- `lib/Store/index.js`
-- `lib/Store/index.d.ts`
-- root export for `makeInMemoryStore`
-
-Quick compatibility test:
+```bash
+npm install @konaa/baileys
+```
 
 ```js
-const { makeWASocket, makeInMemoryStore } = require('@konaa/baileys')
+const {
+  default: makeWASocket,
+  makeInMemoryStore,
+  isJidUser,
+  isJidNewsLetter,
+  MessageType,
+  Mimetype
+} = require('@konaa/baileys')
+
 const store = makeInMemoryStore({})
 ```
 
-Notes:
+## Maintenance status
 
-- Base package is ESM, but Node v24 can `require()` this package in the current MikirBot runtime.
-- Compatibility store is lightweight and covers common events: chats, contacts, messages, groups, presences.
-- No production MikirBot files are changed by this package folder.
+This fork is actively maintained for compatibility with MikirBot and legacy Kiu-style plugins.
+
+Current maintained release: **1.0.5**
+
+### Compatibility provided
+
+- Legacy store helpers:
+  - `makeInMemoryStore()`
+  - `loadMessages()`
+  - `fetchImageUrl()`
+  - `fetchGroupMetadata()`
+  - `fetchMessageReceipts()`
+- Legacy export aliases:
+  - `isJidUser`
+  - `isJidNewsLetter`
+  - `MessageType`
+  - `Presence`
+  - `Mimetype`
+  - `WAFlag`
+  - `WA_MESSAGE_STUB_TYPES`
+- Socket/send compatibility:
+  - `setLabelGroup()`
+  - `sendStatusMention()`
+  - Kiu-style album/status/raw proto send branches
+- Safer quoted-message behavior for clone/eval-style plugins:
+  - quoted text is normalized safely when context info is attached
+  - old `conversation` string crashes are guarded
+
+## Compatibility policy
+
+- Keep latest Baileys RC behavior first.
+- Add wrappers/shims for legacy behavior instead of replacing modern internals.
+- Avoid copying old receive/send internals wholesale when a narrow compatibility shim is enough.
+- Test compatibility against MikirBot runtime before publishing.
+
+## Links
+
+- npm: https://www.npmjs.com/package/@konaa/baileys
+- Repository: https://github.com/KonaimaV2/baileys
+- Issues: https://github.com/KonaimaV2/baileys/issues
 
 ---
 
