@@ -46,5 +46,7 @@ export declare const isHostedPnUser: (jid: string | undefined) => boolean | unde
 export declare const isHostedLidUser: (jid: string | undefined) => boolean | undefined;
 export declare const isJidBot: (jid: string | undefined) => boolean | "" | undefined;
 export declare const jidNormalizedUser: (jid: string | undefined) => string;
+export declare const lidToJid: (jid: string | undefined) => string | undefined;
+export declare const getBotJid: (jid: string | undefined) => string | undefined;
 export declare const transferDevice: (fromJid: string, toJid: string) => string;
 //# sourceMappingURL=jid-utils.d.ts.map
