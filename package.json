@@ -1,7 +1,7 @@
 {
   "name": "@konaa/baileys",
   "type": "module",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Konaima custom Baileys based on @whiskeysockets/baileys rc with legacy compatibility helpers",
   "keywords": [
     "whatsapp",
@@ -22,7 +22,8 @@
     "engine-requirements.js",
     "lib",
     "WAProto",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "test": "node -e \"import('./lib/index.js').then(m=>{if(typeof m.makeInMemoryStore!=='function')throw new Error('missing makeInMemoryStore'); console.log('ok')})\"",
