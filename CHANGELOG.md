@@ -6,6 +6,35 @@ This package keeps modern Baileys RC behavior while adding targeted compatibilit
 
 The entries below were rebuilt from the published npm tarballs for `@konaa/baileys`, comparing each release against the previous one.
 
+## 1.0.12 — 2026-06-09
+
+Kyuu interactive media-header builder compatibility release.
+
+### Added
+
+- Added Kyuu-style `interactiveMessage` send builder support in `lib/Socket/messages-send.js`.
+- Added high-level `sendMessage()` handling for custom `interactiveMessage` payloads that include:
+  - `thumbnail`
+  - `image`
+  - `video`
+  - `document`
+  - `jpegThumbnail`
+  - `nativeFlowMessage`
+  - `buttons`
+  - `contextInfo`
+  - `externalAdReply`
+
+### Changed
+
+- Custom `interactiveMessage` sends can now upload and attach media headers before the message is converted into proto content.
+- Preserves native-flow button payloads while adding `hasMediaAttachment` headers for generated media-backed interactive messages.
+- Bumped package metadata from `1.0.11` to `1.0.12`.
+
+### Notes
+
+- This improves compatibility with `@kyuu2nd/baileys`-style generated interactive/native-flow messages.
+- It does not guarantee that every raw cloned unsupported native-flow/location payload will render on clients that already reject the original message.
+
 ## 1.0.11 — 2026-06-09
 
 Kiu/Kyuu native-flow relay compatibility release.
