@@ -6,6 +6,31 @@ This package keeps modern Baileys RC behavior while adding targeted compatibilit
 
 The entries below were rebuilt from the published npm tarballs for `@konaa/baileys`, comparing each release against the previous one.
 
+## 1.0.11 — 2026-06-09
+
+Kiu/Kyuu native-flow relay compatibility release.
+
+### Added
+
+- Added native-flow button-name detection in `lib/Socket/messages-send.js` for wrapped and direct `interactiveMessage` payloads.
+- Added compatibility mapping for newer Kiu/Kyuu-style native-flow button names:
+  - `review_and_pay`
+  - `review_order`
+  - `payment_info`
+  - `payment_status`
+  - `payment_method`
+  - generic native-flow/interactive menus.
+
+### Changed
+
+- Extended legacy/Kiu additional-node selection so native-flow interactive menus get a more accurate Kiu-compatible relay node instead of only the generic native-flow node.
+- Kept modern Baileys RC behavior intact while improving raw relay/clone compatibility for menus produced by `@kyuu2nd/baileys`.
+- Bumped package metadata from `1.0.10` to `1.0.11`.
+
+### Fixed
+
+- Improved `.clone`/raw relay compatibility for newer Kiu/Kyuu native-flow menu payloads that could render as “unsupported/incompatible WhatsApp version” when relayed through the older `@konaa/baileys` runtime.
+
 ## 1.0.10 — 2026-06-07
 
 Documentation-only release.
