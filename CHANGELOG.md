@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.0.13 — 2026-06-10
+
+### Added
+
+- Experimental receive-side support for Meta AI / `@bot` `enc type="msmsg"` replies.
+- Stores outbound `MessageContextInfo.messageSecret` in a bounded in-memory cache and uses Meta reply `target_id` / `target_sender_jid` metadata to decrypt bot replies.
+- Decodes `MessageSecretMessage` payloads and derives the AES-GCM key with WhatsApp/WhatsMeow-style `Bot Message` HKDF.
+- Unwraps bot reply `ProtocolMessage.editedMessage` envelopes so downstream serializers see normal message content.
+
+### Changed
+
+- `msmsg` stanzas are no longer dropped before decryption; they are routed through the message-secret decrypt path.
+- Keeps regular Signal `msg`, `pkmsg`, and group `skmsg` behavior unchanged.
+
+### Notes
+
+- `msmsg` is not a normal Signal ratchet message. Treating it as `msg`/`pkmsg` causes `Bad MAC`; it requires the original outbound `messageSecret`.
+- The cache is intentionally in-memory and capped, so bot replies to prompts sent before process restart may not decrypt.
+
 All notable `@konaa/baileys` releases are documented here.
 
 This package keeps modern Baileys RC behavior while adding targeted compatibility shims for MikirBot and older Kiu/@z4phdev-style WhatsApp bot projects.

@@ -27,7 +27,7 @@ const store = makeInMemoryStore({})
 
 This fork is actively maintained for compatibility with MikirBot and legacy Kiu-style plugins.
 
-Current maintained release: **1.0.10**
+Current maintained release: **1.0.13**
 
 ### Compatibility provided
 
@@ -45,6 +45,9 @@ Current maintained release: **1.0.10**
   - `Mimetype`
   - `WAFlag`
   - `WA_MESSAGE_STUB_TYPES`
+- Receive compatibility:
+  - Meta AI / `@bot` `msmsg` replies via message-secret HKDF/AES-GCM decrypt
+  - bot reply `ProtocolMessage.editedMessage` unwrap for normal downstream text handling
 - Socket/send compatibility:
   - `setLabelGroup()`
   - `sendStatusMention()`
@@ -59,6 +62,9 @@ See [CHANGELOG.md](./CHANGELOG.md) for full release notes.
 
 Latest highlights:
 
+- **1.0.13** — Meta AI / `@bot` `msmsg` receive decrypt using outbound `messageSecret`.
+- **1.0.12** — MessageBuilder/native-flow compatibility updates for MikirBot rich menu paths.
+- **1.0.11** — package-side compatibility fixes before 1.0.12 native-flow release.
 - **1.0.10** — documentation-only release expanding the changelog from first release to latest.
 - **1.0.9** — documentation-only release adding changelog visibility to repo/npm.
 - **1.0.8** — restored Kiu-style legacy additional relay nodes for old buttons/list message shapes.
