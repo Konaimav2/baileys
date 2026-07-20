@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.0.14 — 2026-07-20
+
+Upstream synchronization release based on WhiskeySockets/Baileys changes after `v7.0.0-rc13`.
+
+### Added
+
+- Added experimental Android browser identity through `Browsers.android()`, including Android user-agent and device-platform payloads.
+- Added a warning when Android browser identity is selected because upstream still treats it as experimental.
+
+### Fixed
+
+- Nested profile-picture privacy `tctoken` nodes under the `<picture>` query node, matching current upstream protocol structure.
+- Added the TC token timestamp attribute and reject stored peer tokens that have no timestamp.
+- Restored the missing `Long` type import in the distributed `generics.d.ts` declaration.
+
+### Upstream
+
+- Backports WhiskeySockets commits `78e7e4e2cf`, `75d6588b7f`, and `731cd6b5d1` without replacing the fork's MikirBot/Kiu compatibility layers.
+
 ## 1.0.13 — 2026-06-10
 
 ### Added

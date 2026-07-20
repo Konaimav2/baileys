@@ -27,7 +27,7 @@ const store = makeInMemoryStore({})
 
 This fork is actively maintained for compatibility with MikirBot and legacy Kiu-style plugins.
 
-Current maintained release: **1.0.13**
+Current maintained release: **1.0.14**
 
 ### Compatibility provided
 
@@ -62,6 +62,7 @@ See [CHANGELOG.md](./CHANGELOG.md) for full release notes.
 
 Latest highlights:
 
+- **1.0.14** — upstream Android browser support, profile-picture TC token nesting/timestamps, and corrected `Long` declaration import.
 - **1.0.13** — Meta AI / `@bot` `msmsg` receive decrypt using outbound `messageSecret`.
 - **1.0.12** — MessageBuilder/native-flow compatibility updates for MikirBot rich menu paths.
 - **1.0.11** — package-side compatibility fixes before 1.0.12 native-flow release.
